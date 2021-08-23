@@ -33,8 +33,27 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <HintPath>..\packages\NLog.4.7.10\lib\net45\NLog.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Transactions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -43,11 +62,68 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EFContexts\CheckResponse.cs" />
+    <Compile Include="EFModels\CheckType.cs" />
+    <Compile Include="Infra\CdnIpDictionary.cs" />
+    <Compile Include="Infra\CheckForIp.cs" />
+    <Compile Include="Infra\CheckCdn.cs" />
+    <Compile Include="Infra\CheckService.cs" />
+    <Compile Include="Infra\GetWebObject.cs" />
+    <Compile Include="Infra\HttpWebRequestExtensions.cs" />
+    <Compile Include="EFModels\IpCheck.cs" />
+    <Compile Include="Infra\CheckRepository.cs" />
+    <Compile Include="Infra\interfaces\ICheckRepository.cs" />
+    <Compile Include="Infra\Sender.cs" />
+    <Compile Include="Infra\StartProcess.cs" />
+    <Compile Include="Infra\ur.cs" />
+    <Compile Include="Migrations\202108011450349_Checker_IP_First_Migration.cs" />
+    <Compile Include="Migrations\202108011450349_Checker_IP_First_Migration.Designer.cs">
+      <DependentUpon>202108011450349_Checker_IP_First_Migration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202108021503139_Add error message field to IpCheck.cs" />
+    <Compile Include="Migrations\202108021503139_Add error message field to IpCheck.Designer.cs">
+      <DependentUpon>202108021503139_Add error message field to IpCheck.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202108021520386_Change int to long in IpCheck.cs" />
+    <Compile Include="Migrations\202108021520386_Change int to long in IpCheck.Designer.cs">
+      <DependentUpon>202108021520386_Change int to long in IpCheck.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202108231204269_Add primary key.cs" />
+    <Compile Include="Migrations\202108231204269_Add primary key.Designer.cs">
+      <DependentUpon>202108231204269_Add primary key.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202108231320221_New_connectionstring.cs" />
+    <Compile Include="Migrations\202108231320221_New_connectionstring.Designer.cs">
+      <DependentUpon>202108231320221_New_connectionstring.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="EFModels\Params.cs" />
+    <Compile Include="Models\HttpResponse.cs" />
+    <Compile Include="Models\ParamsArr.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202108011450349_Checker_IP_First_Migration.resx">
+      <DependentUpon>202108011450349_Checker_IP_First_Migration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108021503139_Add error message field to IpCheck.resx">
+      <DependentUpon>202108021503139_Add error message field to IpCheck.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108021520386_Change int to long in IpCheck.resx">
+      <DependentUpon>202108021520386_Change int to long in IpCheck.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108231204269_Add primary key.resx">
+      <DependentUpon>202108231204269_Add primary key.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108231320221_New_connectionstring.resx">
+      <DependentUpon>202108231320221_New_connectionstring.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
