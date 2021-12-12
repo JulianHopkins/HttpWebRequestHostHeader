@@ -88,13 +88,9 @@
     <Compile Include="Migrations\202108021520386_Change int to long in IpCheck.Designer.cs">
       <DependentUpon>202108021520386_Change int to long in IpCheck.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202108231204269_Add primary key.cs" />
-    <Compile Include="Migrations\202108231204269_Add primary key.Designer.cs">
-      <DependentUpon>202108231204269_Add primary key.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202108231320221_New_connectionstring.cs" />
-    <Compile Include="Migrations\202108231320221_New_connectionstring.Designer.cs">
-      <DependentUpon>202108231320221_New_connectionstring.cs</DependentUpon>
+    <Compile Include="Migrations\202108231344528_All_OK.cs" />
+    <Compile Include="Migrations\202108231344528_All_OK.Designer.cs">
+      <DependentUpon>202108231344528_All_OK.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="EFModels\Params.cs" />
@@ -104,7 +100,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
@@ -117,11 +115,8 @@
     <EmbeddedResource Include="Migrations\202108021520386_Change int to long in IpCheck.resx">
       <DependentUpon>202108021520386_Change int to long in IpCheck.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202108231204269_Add primary key.resx">
-      <DependentUpon>202108231204269_Add primary key.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202108231320221_New_connectionstring.resx">
-      <DependentUpon>202108231320221_New_connectionstring.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202108231344528_All_OK.resx">
+      <DependentUpon>202108231344528_All_OK.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

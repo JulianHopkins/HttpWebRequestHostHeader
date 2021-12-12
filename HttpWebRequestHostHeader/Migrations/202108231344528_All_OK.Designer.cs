@@ -7,13 +7,13 @@ namespace HttpWebRequestHostHeader.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class Addprimarykey : IMigrationMetadata
+    public sealed partial class All_OK : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(Addprimarykey));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(All_OK));
         
         string IMigrationMetadata.Id
         {
-            get { return "202108231204269_Add primary key"; }
+            get { return "202108231344528_All_OK"; }
         }
         
         string IMigrationMetadata.Source

@@ -60,6 +60,8 @@ namespace HttpWebRequestHostHeader.Infra
             request.Accept = "*/*";
             request.UserAgent = "Mozilla/4.0 (compatible; MSIE 5.01; Windows NT 5.0)";
             request.Timeout = response_timeout;
+            request.KeepAlive = false;
+            request.ServicePoint.ConnectionLeaseTimeout = 0;
             ServicePointManager.ServerCertificateValidationCallback = (s, certificate, chain, sslPolicyErrors) => true;
             check.ReqTime = DateTime.Now;
             Stopwatch sw = Stopwatch.StartNew();
