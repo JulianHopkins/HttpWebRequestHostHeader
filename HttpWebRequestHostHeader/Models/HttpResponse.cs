@@ -7,8 +7,15 @@ using System.Threading.Tasks;
 
 namespace HttpWebRequestHostHeader.Models
 {
+    /// <summary>
+    /// Надстройка над WebResponse, включающая также свойство ErrorMessage.
+    /// </summary>
     public class HttpResponse
     {
+        /// <summary>
+        /// Надстройка над WebResponse, включающая также свойство ErrorMessage.
+        /// </summary>
+        public HttpResponse () {}
         public WebResponse Response { get; set; }
         public string ErrorMessage { get; set; }
     }

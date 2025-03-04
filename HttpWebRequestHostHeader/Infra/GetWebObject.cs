@@ -11,9 +11,18 @@ using System.Threading.Tasks;
 
 namespace HttpWebRequestHostHeader.Infra
 {
+    /// <summary>
+    /// Класс содержит единственный метод GetObject, который формирует web-запрос клиента (GET), ожидается десерилизация ответа от сервера в возвращаемый тип T.
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
     public class GetWebObject<T> : Sender where T:new()
     {
         private readonly Logger Logger = LogManager.GetCurrentClassLogger();
+        /// <summary>
+        /// Метод формирует web-запрос клиента (GET), ожидается десерилизация ответа от сервера в возвращаемый тип T.
+        /// </summary>
+        /// <param name="url">Адрес сервера.</param>
+        /// <returns></returns>
         public T GetObject(string url)
         {
             

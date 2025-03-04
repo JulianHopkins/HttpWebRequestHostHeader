@@ -11,6 +11,12 @@ namespace HttpWebRequestHostHeader.Infra.Repositories
 {
     public class CheckRepository : ICheckRepository
     {
+        /// <summary>
+        /// Стандартный метод репозитория, для обработки исключений в одном месте.
+        /// </summary>
+        /// <typeparam name="R"></typeparam>
+        /// <param name="func"></param>
+        /// <returns></returns>
         public async Task<R> CallMethod<R>(Func<ICheckRepository, Task<R>> func) where R : new()
         {
 
@@ -40,6 +46,11 @@ namespace HttpWebRequestHostHeader.Infra.Repositories
 
             }
         }
+        /// <summary>
+        /// Возвращает List/Params/ из таблицы Params, Id которых входят в передаваемый в параметре массив.
+        /// </summary>
+        /// <param name="Id"></param>
+        /// <returns></returns>
         public Task<ParamsArr> GetParams(int[] Id)
         {
             using (CheckResponse chr = new CheckResponse())
@@ -49,6 +60,11 @@ namespace HttpWebRequestHostHeader.Infra.Repositories
 
             }
         }
+        /// <summary>
+        /// Возвращает Params из таблицы Params, Id которого равен передаваемому в параметре int.
+        /// </summary>
+        /// <param name="Id"></param>
+        /// <returns></returns>
         public Task<Params> GetParams(int Id)
         {
             using (CheckResponse chr = new CheckResponse())
@@ -56,7 +72,11 @@ namespace HttpWebRequestHostHeader.Infra.Repositories
                 return Task.FromResult(chr.Params.AsNoTracking().FirstOrDefault(q=> q.Id == Id));
             }
         }
-
+        /// <summary>
+        /// Добавляет экземпляр IpCheck в таблицу IpCheck.
+        /// </summary>
+        /// <param name="check"></param>
+        /// <returns></returns>
         public async Task<int> AddIpCheck(IpCheck check)
         {
             using (CheckResponse chr = new CheckResponse())

@@ -26,9 +26,13 @@ namespace HttpWebRequestHostHeader.Infra
             "Transfer-Encoding",
             "User-Agent"
     };
-
+        //Создаём словарь со строковыми ключами и PropertyInfo в качестве значения, с функцией сравнения равенства ключей без учета регистра для текущего языка.
+        //https://learn.microsoft.com/ru-ru/dotnet/api/system.collections.generic.dictionary-2.-ctor?view=net-8.0#system-collections-generic-dictionary-2-ctor(system-collections-generic-iequalitycomparer((-0))) 
         static Dictionary<string, PropertyInfo> HeaderProperties = new Dictionary<string, PropertyInfo>(StringComparer.OrdinalIgnoreCase);
-
+        /// <summary>
+        /// В конструкторе перебираем захардкоженный строковый массив, каджый элемент которого представляет http-заголовок, преобразуем его к PascalCase C# и
+        /// подставляем в метод typeof(HttpWebRequest).GetProperty(propertyName) с целью извлечения соответствующего PropertyInfo. Заполняем словарь HeaderProperties.
+        /// </summary>
         static HttpWebRequestExtensions()
         {
             Type type = typeof(HttpWebRequest);
@@ -39,7 +43,13 @@ namespace HttpWebRequestHostHeader.Infra
                 HeaderProperties[header] = headerProperty;
             }
         }
-
+        /// <summary>
+        /// Метод, который устанавливает в переданном а аргументе запросе клиента HttpWebRequest request правильные значения заголовков, используя
+        /// встроенное в HttpWebRequest форматирование заголовков не строковых типов.
+        /// </summary>
+        /// <param name="request"></param>
+        /// <param name="name"></param>
+        /// <param name="value"></param>
         public static void SetRawHeader(this HttpWebRequest request, string name, string value)
         {
             if (HeaderProperties.ContainsKey(name))

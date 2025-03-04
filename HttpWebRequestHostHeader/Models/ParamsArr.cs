@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace HttpWebRequestHostHeader.Models
 {
+    /// <summary>
+    /// Надстройка над DTO Params
+    /// </summary>
     public class ParamsArr
     {
         public List<Params> Params;

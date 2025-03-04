@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 
 namespace HttpWebRequestHostHeader.Infra
 {
+    /// <summary>
+    /// Отправитель запросов серверу
+    /// </summary>
     public class Sender
     {
 
@@ -16,7 +19,12 @@ namespace HttpWebRequestHostHeader.Infra
         {
 
         }
-
+        /// <summary>
+        /// Получает объект HttpWebRequest и отправляет запрос, при ответе создаёт WebResponse и вставляет его в поле Response объекта HttpResponse namespace HttpWebRequestHostHeader.
+        /// Если сервер не ответил, то поле Response будет равно null, а в ErrorMessage - сообщение об истечении таймаута.
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
         public async Task<HttpResponse> answer(HttpWebRequest request)
         {
 
